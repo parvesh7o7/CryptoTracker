@@ -1,0 +1,366 @@
+/* ── Coin Detail Page ── */
+.coin-detail {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ── Coin Header Card ── */
+.coin-header {
+    background: rgba(15, 20, 29, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Coin Title Row ── */
+.coin-title {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.coin-title img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 24px rgba(0, 242, 254, 0.15);
+    flex-shrink: 0;
+}
+
+.coin-title h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.coin-title .symbol {
+    font-size: 0.85rem;
+    color: #8b95a5;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+}
+
+/* ── Market Rank Badge ── */
+.market-rank {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    color: #4facfe;
+    background: rgba(79, 172, 254, 0.1);
+    border: 1px solid rgba(79, 172, 254, 0.25);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ── Price Section ── */
+.price-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.25rem;
+}
+
+.current-price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.crypto-current-price {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Change Badge ── */
+.change-badge {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 8px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.change-badge.positive {
+    color: #00e676;
+    background: rgba(0, 230, 118, 0.12);
+    border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+.change-badge.negative {
+    color: #ff5252;
+    background: rgba(255, 82, 82, 0.12);
+    border: 1px solid rgba(255, 82, 82, 0.25);
+}
+
+/* ── Price Peaks (24h High / Low) ── */
+.price-peaks {
+    display: flex;
+    gap: 1rem;
+}
+
+.price-high,
+.price-low {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: border-color 0.25s ease;
+}
+
+.price-high:hover,
+.price-low:hover {
+    border-color: rgba(0, 242, 254, 0.2);
+}
+
+.price-peak-title {
+    font-size: 0.7rem;
+    color: #8b95a5;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+.price-high .price-peak-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00e676;
+}
+
+.price-low .price-peak-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff5252;
+}
+
+/* ── Chart Section ── */
+.chart-section {
+    background: rgba(15, 20, 29, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeUp 0.5s ease 0.1s both;
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #d0d8e8;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.3px;
+}
+
+/* Recharts axis text */
+.recharts-cartesian-axis-tick-value {
+    fill: #8b95a5;
+    font-size: 0.72rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Recharts tooltip */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+    background: rgba(15, 20, 29, 0.9) !important;
+    border: 1px solid rgba(0, 242, 254, 0.2) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.recharts-tooltip-label {
+    color: #8b95a5 !important;
+    font-size: 0.75rem !important;
+}
+
+.recharts-tooltip-item {
+    color: #4facfe !important;
+    font-weight: 600 !important;
+}
+
+/* ── No Data / Error State ── */
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 4rem;
+    background: rgba(15, 20, 29, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    margin: 2rem auto;
+    max-width: 500px;
+    animation: fadeUp 0.4s ease both;
+}
+
+.no-data p {
+    font-size: 1.2rem;
+    color: #8b95a5;
+    font-weight: 500;
+}
+
+.no-data button {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    color: #0b0e14;
+    border: none;
+    padding: 0.65rem 1.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 18px rgba(79, 172, 254, 0.3);
+}
+
+.no-data button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79, 172, 254, 0.45);
+}
+
+/* ── Go Back Button (Navbar) ── */
+.go-back {
+    background: rgba(255, 255, 255, 0.04);
+    color: #d0d8e8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.go-back:hover {
+    border-color: rgba(0, 242, 254, 0.35);
+    color: #00f2fe;
+    background: rgba(0, 242, 254, 0.06);
+}
+
+/* ── Stats Section ── */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.stats > div {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.stats > div:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 242, 254, 0.2);
+    transform: translateY(-2px);
+}
+
+.label-stat {
+    font-size: 0.75rem;
+    color: #8b95a5;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .coin-detail {
+        padding: 1.5rem;
+    }
+
+    .coin-header {
+        padding: 1.5rem;
+    }
+
+    .crypto-current-price {
+        font-size: 1.7rem;
+    }
+
+    .coin-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .price-peaks {
+        flex-direction: column;
+    }
+
+    .chart-section {
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}

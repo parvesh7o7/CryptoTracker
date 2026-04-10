@@ -1,8 +1,10 @@
-import { use, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import { CoinData } from "../api/coinGecko";
 import Loader from "../../AnimatedComps/Loader";
 import CryptoCard from "../../components/CryptoCard";
+import { searchQueryContext } from "./Navbar";
 function Home() {
+    const { searchValue } = useContext(searchQueryContext);
     const [currencyList, setCurrencyList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [view, setView] = useState("grid");
@@ -21,7 +23,9 @@ function Home() {
     }
 
     function filterAndSort() {
-        const filter = [...currencyList];
+        const filter = currencyList.filter((crypto) =>
+            crypto.name.toLowerCase().includes(searchValue.toLowerCase())
+        )
         filter.sort((a, b) => {
             switch (filterState) {
                 case "name":
@@ -47,7 +51,7 @@ function Home() {
     }, [])
     useEffect(() => {
         filterAndSort();
-    }, [filterState, currencyList])
+    }, [filterState, currencyList, searchValue])
     return (
         <>
             <div className="app">
